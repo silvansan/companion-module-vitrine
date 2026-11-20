@@ -1,0 +1,26 @@
+{
+	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+	"id": "vitrine",
+	"name": "vitrine",
+	"shortname": "vitrine",
+	"description": "Control Vitrine guest media on vMix: pick a guest and file, clear the screen, play/pause/seek videos and audio, jump to markers. Variables such as live_kind let triggers dim lights or open mics when a video plays.",
+	"version": "0.0.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/silvansan/companion-module-vitrine.git",
+	"bugs": "https://github.com/silvansan/companion-module-vitrine/issues",
+	"maintainers": [
+		{
+			"name": "Silvan"
+		}
+	],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../src/main.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "Vitrine",
+	"products": ["Guest media for vMix"],
+	"keywords": ["vmix", "media", "guest", "upload", "church"]
+}

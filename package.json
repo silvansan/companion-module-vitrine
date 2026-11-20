@@ -1,0 +1,27 @@
+{
+	"name": "companion-module-vitrine",
+	"version": "0.1.0",
+	"main": "src/main.js",
+	"type": "commonjs",
+	"scripts": {
+		"format": "prettier -w .",
+		"package": "companion-module-build",
+		"test": "node --test test/*.test.js"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/silvansan/companion-module-vitrine.git"
+	},
+	"engines": {
+		"node": "^22.20"
+	},
+	"dependencies": {
+		"@companion-module/base": "~1.14.1"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "^2.6.1",
+		"prettier": "^3.6.2"
+	},
+	"prettier": "@companion-module/tools/.prettierrc.json"
+}
