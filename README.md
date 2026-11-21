@@ -33,6 +33,10 @@ npm run package   # writes vitrine-<version>.tgz
 
 The GitHub workflow builds the .tgz on every push and attaches it to releases.
 
+## Releasing
+
+**Actions → release → Run workflow**, choose *patch*, *minor* or *major* (or type an exact version). It sets the version in `package.json`, tags it, creates the release and attaches `vitrine-x.y.z.tgz`.
+
 ## Getting into the official module list
 
 Bitfocus hosts official modules under `github.com/bitfocus/companion-module-<manufacturer>-<product>`. Ask in the Companion Slack (#module-development) for a repository, move this code there, then submit a version through the Bitfocus developer portal. The module id (`vitrine`) can stay the same.
