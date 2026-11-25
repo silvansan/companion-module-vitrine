@@ -97,3 +97,10 @@ test('live agent', { skip: !process.env.VITRINE_KEY }, async () => {
 	assert.strictEqual(c.liveKind(), 'none')
 	c.stop()
 })
+
+test('agent address may include http:// and a port', () => {
+	const { VitrineClient } = require('../src/client')
+	const c = new VitrineClient()
+	c.configure({ host: ' http://192.168.1.105:8090/ ', port: 8090, apiKey: 'vik_x' })
+	assert.equal(c.base, 'http://192.168.1.105:8090')
+})

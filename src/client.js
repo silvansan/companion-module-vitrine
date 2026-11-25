@@ -27,7 +27,9 @@ class VitrineClient extends EventEmitter {
 	}
 
 	configure({ host, port, apiKey }) {
-		this.base = `http://${host || '127.0.0.1'}:${port || 8090}`
+		// Accept "http://1.2.3.4:8090/" too: keep only the host name.
+		const clean = String(host || '127.0.0.1').trim().replace(/^https?:\/\//i, '').replace(/\/.*$/, '').replace(/:\d+$/, '')
+		this.base = `http://${clean || '127.0.0.1'}:${port || 8090}`
 		this.apiKey = (apiKey || '').trim()
 	}
 

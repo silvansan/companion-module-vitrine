@@ -21,7 +21,9 @@ See [companion/HELP.md](companion/HELP.md) for setup, all actions, variables and
 
 1. Download `vitrine-x.y.z.tgz` from the [releases](https://github.com/silvansan/companion-module-vitrine/releases) (or build it, below).
 2. In Companion: **Modules** → **Import module package** → choose the .tgz.
-3. **Connections** → add **Vitrine**, enter the agent address, port 8090 and the API key.
+3. **Connections** → add **Vitrine**, enter the agent address, port 8090 and the API key. The address is only the IP or name (e.g. `192.168.1.105`); `http://` and a port in it are ignored.
+
+   Module 0.1.0 didn't read the API key on Companion 4 and newer ("No API key" although one is entered): update to 0.1.1 or later.
 
 ## Build
 

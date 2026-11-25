@@ -25,12 +25,15 @@ class VitrineInstance extends InstanceBase {
 		this.client.on('state', () => this.refresh())
 	}
 
-	async init(config) {
-		await this.configUpdated(config)
+	async init(config, _isFirstInit, secrets) {
+		await this.configUpdated(config, secrets)
 	}
 
-	async configUpdated(config) {
+	// The API key is a secret field: Companion 4+ passes it in `secrets`, not in `config`
+	// (older versions put it in config, so both are read).
+	async configUpdated(config, secrets) {
 		this.config = config
+		const apiKey = (secrets && secrets.apiKey) || config.apiKey || ''
 		this.guestCount = Math.max(1, Math.min(32, Number(config.guests) || 8))
 		this.slotCount = Math.max(1, Math.min(64, Number(config.slots) || 16))
 		this.setActionDefinitions(actionDefinitions(this))
@@ -38,7 +41,7 @@ class VitrineInstance extends InstanceBase {
 		this.setVariableDefinitions(variableDefinitions(this))
 		this.setPresetDefinitions(presetDefinitions(this))
 		this.updateStatus(InstanceStatus.Connecting)
-		this.client.configure({ host: config.host, port: config.port, apiKey: config.apiKey })
+		this.client.configure({ host: config.host, port: config.port, apiKey })
 		this.client.start()
 		this.refresh()
 	}
